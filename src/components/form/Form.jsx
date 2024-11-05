@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Form() {
   let [formData, setFormData] = useState({fullname: ""});
 
-  let handleChange = (event) => {
+  let handleInputChange = (event) => {
     setFormData((currData) => {
         return {...currData, [event.target.name] : event.target.value}
     });
@@ -25,7 +25,7 @@ export default function Form() {
             type="text"
             placeholder="enter your full name"
             id="fullname"
-            onChange={handleChange}
+            onChange={handleInputChange}
             name="fullname"
             value={formData.fullname}
           />
