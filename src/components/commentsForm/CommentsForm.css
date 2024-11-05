@@ -1,0 +1,19 @@
+#form {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 15px;
+  filter: drop-shadow(5px 5px 15px black);
+}
+
+input {
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 14px;
+  text-align: center;
+  height: 25px;
+}
+
+.formName {
+  text-align: left;
+}
