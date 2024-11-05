@@ -26,6 +26,7 @@ export default function ShowComment() {
           </div>
         );
       })}
+      <hr />
 
       <CommentsForm addNewComment={addNewComment} />
     </>

@@ -8,8 +8,8 @@ export default function App() {
     <>
       {/* <Form/> */}
       {/* <CommentsForm/> */}
-      {/* <ShowComment/> */}
-      <Counter/>
+      <ShowComment/>
+      {/* <Counter/> */}
     </>
   );
 }

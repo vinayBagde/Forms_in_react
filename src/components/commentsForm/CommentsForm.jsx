@@ -1,11 +1,13 @@
 import "./CommentsForm.css";
 import { useState } from "react";
-export default function CommentsForm({addNewComment}) {
+export default function CommentsForm({ addNewComment }) {
   let [formData, setFormData] = useState({
     username: "",
     remark: "",
     rating: 5,
   });
+
+  let [isValid, setIsValid] = useState(true);
 
   let handleInputChange = (event) => {
     setFormData((currData) => {
@@ -15,10 +17,15 @@ export default function CommentsForm({addNewComment}) {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    if (!formData.username) {
+      console.log("username cannot be empty");
+      setIsValid(false);
+      return;
+    }
     addNewComment(formData);
     setFormData({ username: "", remark: "", rating: 5 });
   };
+
   return (
     <>
       <div id="form">
@@ -36,6 +43,7 @@ export default function CommentsForm({addNewComment}) {
             name="username"
             value={formData.username}
           />
+          {!isValid && <p style={{ color: "red" }}>username cannot be empty</p>}
           <br />
           <label htmlFor="remark" className="formName">
             Remark :{" "}
@@ -62,6 +70,7 @@ export default function CommentsForm({addNewComment}) {
             name="rating"
             id="rating"
           />
+
           <br />
           <button>Add Comment</button>
         </form>
