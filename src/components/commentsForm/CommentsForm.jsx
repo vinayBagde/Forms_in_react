@@ -1,36 +1,63 @@
 import "./CommentsForm.css";
 import { useState } from "react";
+ import { useFormik } from "formik";
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.username) {
+      errors.username = "username cannot be empty";
+    } 
+
+    return errors;
+  };
 export default function CommentsForm({ addNewComment }) {
-  let [formData, setFormData] = useState({
-    username: "",
-    remark: "",
-    rating: 5,
-  });
+  // let [formData, setFormData] = useState({
+  //   username: "",
+  //   remark: "",
+  //   rating: 5,
+  // });
 
-  let [isValid, setIsValid] = useState(true);
+   const formik = useFormik({
+     initialValues: {
+       username: "",
+       remark: "",
+       rating: 5,
+     },
+     validate,
+     onSubmit: (values) => {
+       alert(JSON.stringify(values, null, 2));
+        
+     },
+   });
 
-  let handleInputChange = (event) => {
-    setFormData((currData) => {
-      return { ...currData, [event.target.name]: event.target.value };
-    });
-  };
+  // let [isValid, setIsValid] = useState(true);
 
-  let handleSubmit = (event) => {
-    event.preventDefault();
-    if (!formData.username) {
-      console.log("username cannot be empty");
-      setIsValid(false);
-      return;
-    }
-    addNewComment(formData);
-    setFormData({ username: "", remark: "", rating: 5 });
-  };
+  // let handleInputChange = (event) => {
+  //   setFormData((currData) => {
+  //     return { ...currData, [event.target.name]: event.target.value };
+  //   });
+  // };
+
+  // let handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   // if (!formData.username) {
+  //   //   console.log("username cannot be empty");
+  //   //   setIsValid(false);
+  //   //   return;
+  //   // }
+  //   addNewComment(formData);
+  //   setFormData({ username: "", remark: "", rating: 5 });
+  // };
 
   return (
     <>
       <div id="form">
         <h2>Give A Comment!</h2>
-        <form action="./action" onSubmit={handleSubmit}>
+        <form
+          action="./action"
+          // onSubmit={handleSubmit}
+          onSubmit={formik.handleSubmit}
+        >
           <label htmlFor="username" className="formName">
             User name :{" "}
           </label>
@@ -39,11 +66,16 @@ export default function CommentsForm({ addNewComment }) {
             type="text"
             placeholder="username"
             id="username"
-            onChange={handleInputChange}
+            // onChange={handleInputChange}
+            onChange={formik.handleChange}
             name="username"
-            value={formData.username}
+            // value={formData.username}
+            value={formik.values.username}
           />
-          {!isValid && <p style={{ color: "red" }}>username cannot be empty</p>}
+          {/* {!isValid && <p style={{ color: "red" }}>username cannot be empty</p>} */}
+          {formik.errors.username ? (
+            <p style={{color: "red"}}>{formik.errors.username}</p>
+          ) : null}
           <br />
           <label htmlFor="remark" className="formName">
             Remark :{" "}
@@ -52,9 +84,11 @@ export default function CommentsForm({ addNewComment }) {
           <textarea
             placeholder="remark"
             id="remark"
-            onChange={handleInputChange}
+            // onChange={handleInputChange}
+            onChange={formik.handleChange}
             name="remark"
-            value={formData.remark}
+            // value={formData.remark}
+            value={formik.values.remark}
           />
           <br />
           <label htmlFor="rating" className="formName">
@@ -65,14 +99,16 @@ export default function CommentsForm({ addNewComment }) {
             type="number"
             min={1}
             max={5}
-            value={formData.rating}
-            onChange={handleInputChange}
+            // value={formData.rating}
+            value={formik.values.rating}
+            // onChange={handleInputChange}
+            onChange={formik.handleChange}
             name="rating"
             id="rating"
           />
 
           <br />
-          <button>Add Comment</button>
+          <button type="submit">Add Comment</button>
         </form>
       </div>
     </>
