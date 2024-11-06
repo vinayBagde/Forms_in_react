@@ -1,6 +1,7 @@
 import "./ShowComment.css";
 import { useState } from "react";
 import CommentsForm from "../commentsForm/CommentsForm.jsx";
+import Formik from "../formik/Formik.jsx";
 export default function ShowComment() {
   let [comments, setComments] = useState([
     { username: "@usher", remark: "great work", rating: 5 },
@@ -29,6 +30,7 @@ export default function ShowComment() {
       <hr />
 
       <CommentsForm addNewComment={addNewComment} />
+      {/* <Formik addNewComment={addNewComment}/> */}
     </>
   );
 }
