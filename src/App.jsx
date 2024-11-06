@@ -4,6 +4,7 @@ import CommentsForm from "./components/commentsForm/CommentsForm.jsx";
 import ShowComment from "./components/showComment/ShowComment.jsx";
 import Counter from "./components/counter/Counter.jsx";
 import Joker from "./components/joker/Joker.jsx";
+import MyVersionJoker from "./components/joker/MyVersionJoker.jsx";
 export default function App() {
   return (
     <>
@@ -11,7 +12,8 @@ export default function App() {
       {/* <CommentsForm/> */}
       {/* <ShowComment /> */}
       {/* <Counter/> */}
-      <Joker/>
+      {/* <Joker/> */}
+      <MyVersionJoker/>
     </>
   );
 }
