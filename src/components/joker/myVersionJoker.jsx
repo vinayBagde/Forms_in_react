@@ -1,3 +1,4 @@
+// without using useEffect hook render a joke on browser
 import { useState, useEffect } from "react";
 export default function MyVersionJoker() {
   let URL = "https://official-joke-api.appspot.com/random_joke";
