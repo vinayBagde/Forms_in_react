@@ -9,6 +9,7 @@ export default function Joker() {
     setJoke({ setup: jsonResponse.setup, punchline: jsonResponse.punchline });
   }
 
+  // when we use call back in useEffect hook if use curly braces then we have to call function.
   //   useEffect(() => {                         // apna college's version of useEffect
   //     async function getNewJokes() {
   //       let response = await fetch(URL);
@@ -22,7 +23,8 @@ export default function Joker() {
   //     getNewJokes();
   //   }, []);
 
-  useEffect(     // my version of useEffect
+  useEffect(
+    // my version of useEffect
     () =>
       async function getNewJokes() {
         let response = await fetch(URL);

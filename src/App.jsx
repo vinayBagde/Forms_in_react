@@ -13,7 +13,7 @@ export default function App() {
       {/* <ShowComment /> */}
       {/* <Counter/> */}
       {/* <Joker/> */}
-      <MyVersionJoker/>
+      <MyVersionJoker />
     </>
   );
 }
