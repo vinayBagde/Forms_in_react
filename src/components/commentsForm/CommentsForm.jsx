@@ -23,6 +23,7 @@ export default function CommentsForm({ addNewComment }) {
       setIsValid(false);
       return;
     }
+    
     addNewComment(formData);
     setFormData({ username: "", remark: "", rating: 5 });
   };

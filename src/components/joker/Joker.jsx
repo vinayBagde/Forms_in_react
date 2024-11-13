@@ -9,7 +9,7 @@ export default function Joker() {
     setJoke({ setup: jsonResponse.setup, punchline: jsonResponse.punchline });
   }
 
-  // when we use call back with async keyword in useEffect hook. we have to use arrow function. if use arrow function with its curly braces we have to call function which we've passed it as a argument in arrow function after curly braces & if we use arrow function without curly braces we don't have to call function
+  // when we use call back with async keyword in useEffect hook. we have to use arrow function. if use arrow function with its curly braces we have to call function after curly braces which we've passed it as a argument in arrow function & if we use arrow function without curly braces we don't have to call function
 
   //   useEffect(() => {                         // apna college's version of useEffect
   //     async function getNewJokes() {
@@ -25,7 +25,7 @@ export default function Joker() {
   //   }, []);
 
   useEffect(
-    // my version of useEffect
+    // my version of useEffect without using curly braces of arrow function
     () =>
       async function getNewJokes() {
         let response = await fetch(URL);

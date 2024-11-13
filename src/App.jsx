@@ -10,10 +10,10 @@ export default function App() {
     <>
       {/* <Form/> */}
       {/* <CommentsForm/> */}
-      {/* <ShowComment /> */}
+      <ShowComment />
       {/* <Counter/> */}
       {/* <Joker/> */}
-      <MyVersionJoker />
+      {/* <MyVersionJoker /> */}
     </>
   );
 }

@@ -31,6 +31,7 @@ export default function Form() {
           />
           <br />
           <button>submit</button>
+          <p>{formData.fullname}</p>
         </form>
       </div>
     </>
